@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-ajax-get</title>
+    <script src="myAjax.js"></script>
+</head>
+<body>
+<!--
+1.什么是Ajax？
+Ajax是与服务器交换数据，在不重新加载整个页面的情况下更新部分网页
+-->
+<script>
+    window.onload = function () {
+        var btn = document.querySelector("button");
+        btn.onclick = function () {
+            Ajax("GET","04-ajax-get.php",{
+                "userName": "lbw",
+                "password": "123"
+            },3000,function (xhr) {
+                alert(xhr.responseText);
+            },function (xhr) {
+                alert("请求失败");
+            });
+        }
+    }
+</script>
+<button>发送请求</button>
+</body>
+</html>
